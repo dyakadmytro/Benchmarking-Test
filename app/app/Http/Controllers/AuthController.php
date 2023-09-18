@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Facades\UserRepositoryFacade;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -28,12 +28,9 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        list($name, $email, $password) = array_values($request->only(['name', 'email', 'password']));
-        $user = User::create([
-            'name' => $name,
-            'email' => $email,
-            'password' => $password,
-        ]);
+        $user = UserRepositoryFacade::createUser(
+            $request->only(['name', 'email', 'password'])
+        );
 
         if($user) {
             return redirect()->route('web.welcome');
