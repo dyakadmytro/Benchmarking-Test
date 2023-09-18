@@ -2,6 +2,7 @@
 
 namespace App\Facades;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static bool deleteUser(int $userId)
  * Delete a user by their ID.
  *
- * @method static int createUser(array $userDetails)
+ * @method static User createUser(array $userDetails)
  * Create a new user with the provided details and return their ID.
  *
  * @method static bool updateUser(int $userId, array $newDetails)

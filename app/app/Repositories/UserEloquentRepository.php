@@ -23,7 +23,7 @@ class UserEloquentRepository implements UserRepositoryInterface
         return User::destroy($userId);
     }
 
-    public function createUser(array $userDetails)
+    public function createUser(array $userDetails): User
     {
         return User::create($userDetails);
     }
