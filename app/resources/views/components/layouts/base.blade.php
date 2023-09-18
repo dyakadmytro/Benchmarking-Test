@@ -16,18 +16,7 @@
 </head>
 <body>
 <!-- Header Section -->
-<header class="header py-3">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>Your Laravel App</h1>
-            </div>
-            <div class="col text-right">
-                <!-- Add navigation links or user profile here -->
-            </div>
-        </div>
-    </div>
-</header>
+<x-header/>
 
 <!-- Main Content Section -->
 <main class="container mt-5">

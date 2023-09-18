@@ -24,7 +24,7 @@ class LoginRequest extends FormRequest
         return [
             'email' => 'required|email',
             'password' => 'required|string|max:32',
-            'remember' => 'nullable|boolean'
+            'remember' => 'nullable|in:on'
         ];
     }
 }
