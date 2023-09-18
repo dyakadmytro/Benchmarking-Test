@@ -21,6 +21,8 @@
                     <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Verify password" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Register</button>
+                <hr>
+                <a href="{{ route('social.login', 'google') }}" class="btn btn-danger">Register with Google</a>
             </form>
         </div>
     </div>
