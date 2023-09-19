@@ -4,10 +4,10 @@ namespace App\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class Openweather extends Facade
+class WeatherClient extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'openweather';
+        return 'weather-client';
     }
 }

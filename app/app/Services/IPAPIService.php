@@ -2,10 +2,11 @@
 
 namespace App\Services;
 
+use App\Contracts\IPProviderInterface;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
 
-class IPAPIService
+class IPAPIService implements IPProviderInterface
 {
     private Client $client;
 
@@ -23,15 +24,5 @@ class IPAPIService
             throw new \Exception('ip-api request failed!');
         }
         return $response->getBody()->getContents();
-    }
-
-    public function getCoordinatesByIP($userIpAddress): array
-    {
-        $data = $this->getIPData($userIpAddress);
-        $content = json_decode($data, true);
-        return [
-            'lat' => $content['lat'],
-            'lon' => $content['lon'],
-        ];
     }
 }

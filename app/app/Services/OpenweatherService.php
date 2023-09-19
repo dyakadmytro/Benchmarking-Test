@@ -2,10 +2,11 @@
 
 namespace App\Services;
 
+use App\Contracts\WeatherProviderInterface;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
 
-class OpenweatherService
+class OpenweatherService implements WeatherProviderInterface
 {
     private $mode = 'json';
     private $units = 'standard';
@@ -25,7 +26,7 @@ class OpenweatherService
         $this->client = $client;
     }
 
-    public function getWeatherByCoordinates($lat, $lon)
+    public function getWeatherByCoordinates($lat, $lon): string
     {
         $params = http_build_query([
             'lat' => $lat,
@@ -44,37 +45,37 @@ class OpenweatherService
         return $response->getBody()->getContents();
     }
 
-    public function setModeJSON()
+    public function setModeJSON(): self
     {
         $this->mode = 'json';
         return $this;
     }
 
-    public function setModeHTML()
+    public function setModeHTML(): self
     {
         $this->mode = 'html';
         return $this;
     }
 
-    public function setModeXML()
+    public function setModeXML(): self
     {
         $this->mode = 'xml';
         return $this;
     }
 
-    public function setStandardUnits()
+    public function setStandardUnits(): self
     {
         $this->units = 'standard';
         return $this;
     }
 
-    public function setMetricUnits()
+    public function setMetricUnits(): self
     {
         $this->units = 'metric';
         return $this;
     }
 
-    public function setLang(string $lang)
+    public function setLang(string $lang): self
     {
         if (!in_array($lang, $this->languageSlugs)) throw new \Exception("You cant use this language in API");
 

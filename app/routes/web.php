@@ -27,10 +27,3 @@ Route::name('web.')->group(function () {
         Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     });
 });
-
-Route::name('verification.verify')
-    ->middleware(['auth:web', 'signed'])
-    ->get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-        $request->fulfill();
-        return redirect()->route('web.welcome');
-    });

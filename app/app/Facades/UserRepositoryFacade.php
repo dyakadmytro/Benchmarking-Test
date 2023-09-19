@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static bool updateUser(int $userId, array $newDetails)
  * Update a user's details by their ID.
  *
- * @see \App\Repositories\Interfaces\UserRepositoryInterface
+ * @see \App\Contracts\UserRepositoryInterface
  */
 class UserRepositoryFacade extends Facade
 {

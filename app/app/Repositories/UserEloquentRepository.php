@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
+use App\Contracts\UserRepositoryInterface;
 use App\Models\User;
-use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 
 class UserEloquentRepository implements UserRepositoryInterface

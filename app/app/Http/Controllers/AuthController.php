@@ -37,7 +37,6 @@ class AuthController extends Controller
         );
 
         if ($user) {
-            $user->sendEmailVerificationNotification();
             return redirect()->route('web.home');
         }
         return redirect()->intended();

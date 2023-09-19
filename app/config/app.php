@@ -182,8 +182,9 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'ipapi' => \App\Facades\IPAPI::class,
-        'openweather' => \App\Facades\Openweather::class
+        'ip-client' => \App\Facades\IPClient::class,
+        'weather-client' => \App\Facades\WeatherClient::class,
+        'weather-provider' => \App\Facades\WeatherProvider::class
     ])->toArray(),
 
 ];

@@ -4,10 +4,10 @@ namespace App\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class IPAPI extends Facade
+class IPClient extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'ipapi';
+        return 'ip-client';
     }
 }
