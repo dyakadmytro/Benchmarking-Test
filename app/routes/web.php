@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\AuthController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use \App\Http\Controllers\HomeController;
 
 
 Route::get('/auth/google', [AuthController::class, 'redirectToGoogle'])->name('social.login');
@@ -22,12 +23,14 @@ Route::name('web.')->group(function () {
     Route::post('/register', [AuthController::class, 'register']);
 
     Route::middleware('auth:web')->group(function () {
+        Route::get('/home', [HomeController::class, 'index'])->name('home');
         Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     });
 });
 
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-
-    return redirect()->route('web.welcome');
-})->middleware(['auth:web', 'signed'])->name('verification.verify');
+Route::name('verification.verify')
+    ->middleware(['auth:web', 'signed'])
+    ->get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+        $request->fulfill();
+        return redirect()->route('web.welcome');
+    });

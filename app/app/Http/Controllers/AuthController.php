@@ -20,10 +20,9 @@ class AuthController extends Controller
         $credentials = $request->only(['email', 'password']);
         $remember = $request->get('remember', false);
 
-
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
-            return redirect()->route('web.welcome');
+            return redirect()->route('web.home');
         }
 
         return back()->withErrors([
@@ -39,7 +38,7 @@ class AuthController extends Controller
 
         if ($user) {
             $user->sendEmailVerificationNotification();
-            return redirect()->route('web.welcome');
+            return redirect()->route('web.home');
         }
         return redirect()->intended();
     }
@@ -72,7 +71,7 @@ class AuthController extends Controller
             Auth::login($newUser);
         }
 
-        return redirect()->route('web.welcome');
+        return redirect()->route('web.home');
     }
 
     public function logout(Request $request)

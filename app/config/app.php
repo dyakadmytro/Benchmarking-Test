@@ -182,7 +182,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        'ipapi' => \App\Facades\IPAPI::class,
+        'openweather' => \App\Facades\Openweather::class
     ])->toArray(),
 
 ];
