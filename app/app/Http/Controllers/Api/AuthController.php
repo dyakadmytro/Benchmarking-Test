@@ -38,7 +38,7 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'User Registered In Successfully',
-            ], 200);
+            ], 201);
         }
         // return bad response
     }

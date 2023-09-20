@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Contracts\WeatherProviderInterface;
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Log;
 
 class OpenweatherService implements WeatherProviderInterface
 {
@@ -38,10 +37,6 @@ class OpenweatherService implements WeatherProviderInterface
         ]);
         $url = "https://api.openweathermap.org/data/2.5/weather?{$params}";
         $response = $this->client->get($url);
-        if ($response->getStatusCode() !== 200) {
-            Log::error('openweathermap request failed', ['url' => $url]);
-            throw new \Exception('openweathermap request failed!');
-        }
         return $response->getBody()->getContents();
     }
 

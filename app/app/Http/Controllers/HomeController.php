@@ -13,8 +13,7 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $ip = '188.163.73.242';
-
+        $ip = $request->ip();
         $weatherData = Cache::remember("{$ip}-ip-weather", CacheTime::HOUR->value, function () use($ip) {
             return WeatherProvider::getWeatherByIP($ip);
         });
