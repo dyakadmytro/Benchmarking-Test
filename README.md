@@ -60,21 +60,3 @@ Inside the workspace container, run the following commands to cache the Laravel 
 php artisan config:cache
 php artisan test
 ```
-
-## Usage
-
-You're all set up and ready to go! The Benchmarking Test project is now running on your local environment. Use this space to demonstrate your coding prowess and complete the specified tasks.
-
-## Contributing
-
-If you'd like to contribute to this project, please fork the repository and create a pull request. We're always open to improvements and suggestions.
-
-## License
-
-This project is licensed under the MIT License.
-
----
-
-Happy coding! 🎉
-
-Feel free to customize this `README.md` to fit the specific details and requirements of your project.
