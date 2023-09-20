@@ -1,6 +1,0 @@
-
-CREATE USER 'admin'@'localhost' IDENTIFIED BY 'secret';
-CREATE DATABASE IF NOT EXISTS `benchmarking` COLLATE 'utf8_general_ci' ;
-GRANT ALL ON `benchmarking`.* TO 'admin'@'localhost' ;
-
-FLUSH PRIVILEGES ;

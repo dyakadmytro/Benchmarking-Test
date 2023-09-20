@@ -1,0 +1,6 @@
+
+CREATE USER 'tester'@'%' IDENTIFIED BY 'secret';
+CREATE DATABASE IF NOT EXISTS `benchmarking-test` COLLATE 'utf8_general_ci' ;
+GRANT ALL ON `benchmarking-test`.* TO 'tester'@'%' ;
+
+FLUSH PRIVILEGES ;
